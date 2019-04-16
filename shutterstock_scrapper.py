@@ -62,9 +62,10 @@ def imagescrape():
             data = driver.execute_script("return document.documentElement.outerHTML")
             print("Page " + str(i))
             scraper = BeautifulSoup(data, "lxml")
-            img_container = scraper.find_all("div", {"class":"z_c_b"})
-            print(img_container)
+            img_container = scraper.find_all("div", {"class":"z_c_g"})
+            print(len(img_container))
             for j in range(0, len(img_container)-1):
+                print(j)
                 img_array = img_container[j].find_all("img")
                 img_src = img_array[0].get("src")
                 name = img_src.rsplit("/", 1)[-1]
@@ -79,7 +80,7 @@ def imagescrape():
         print(e)
 
 print("ShutterScrape v1.1")
-
+ 
 #scrape_directory = "C:/Users/[username]/[path]"
 
 while True:
